@@ -162,8 +162,8 @@ int main(int argc, char *argv[]) {
       die("ERROR: '%s' exists and is not a directory\n", htmldir);
   }
 
-  bdphmm = bd_new(mod, 0.3, 0.01, 0.01, 0.5, 0.01, 0.01, 0.01,
-                  0.01, 0.01, 0.01, FALSE, FALSE, FALSE);
+  bdphmm = bd_new(mod, 0.3, 1.5, 0.01, 0.01, 0.3, 0.3, 0.01, 0.01, 0.01,
+                  0.01, 0.01, 0.01, FALSE, FALSE, FALSE, FALSE);
   /* (only the state_to_branch mapping and the category map will
      actually be used) */
 
