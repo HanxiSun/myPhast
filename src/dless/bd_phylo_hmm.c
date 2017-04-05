@@ -36,8 +36,8 @@ BDPhyloHmm *bd_new(TreeModel *source_mod, double rho, double mu,
   double *alpha = smalloc(source_mod->tree->nnodes * sizeof(double)), 
     *beta = smalloc(source_mod->tree->nnodes * sizeof(double)), 
     *tau = smalloc(source_mod->tree->nnodes * sizeof(double));
-  //if (rho <= 0 || rho >= 1)
-    //die("ERROR bd_new: rho (%e) out of bound (0, 1)\n", rho);
+  if (rho <= 0)// || rho >= 1)
+    die("ERROR bd_new: rho (%e) out of bound (0, 1)\n", rho);
   if (mu <= 0 || 2*mu >=1) 
     die("ERROR bd_new: mu (%e) out of bound (0, 0.5)\n", mu);
   if (nu <= 0 || nu >= 1)

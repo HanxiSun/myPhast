@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
   while ((c = (char)getopt_long(argc, argv, "R:t:p:E:C:r:M:i:N:P:I:H:h", long_opts, &opt_idx)) != -1) {
     switch (c) {
     case 'R':
-      rho = get_arg_dbl_bounds(optarg, 0, 1);
+      rho = get_arg_dbl_bounds(optarg, 0, INFTY);
       break;
     case 't':
       if (optarg[0] != '~') estim_gamma = estim_omega = FALSE;
