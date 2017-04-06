@@ -1,0 +1,87 @@
+phyloFit: 
+phyloFit [OPTIONS] -o tree.mod [alignment]
+
+- multiple alighment —-> tree
+- require tree topology if > 2 species (=2: distance in between)
+- substitution model: (-s) REV, HKY85 etc.
+
+
+
+========================================================================================
+
+
+
+dless: 
+dless [OPTIONS] [alignment] tree.mod > out.gff
+
+output: out.gff
+
+hmrc	PHAST	cow-death	19883	20514	27.593	+	.	id "hmrc.1"
+hmrc	PHAST	conserved	48444	48857	78.761	+	.	id "hmrc.4"
+...
+
+seqname - The name of the sequence. 
+source  - The program that generated this feature.
+feature - conserved, xx-death(loss), or xx-birth(gain).
+start   - The starting position of the feature in the sequence (starts from 1).
+end     - The ending position of the feature (inclusive).
+score   - log odds score for the prediction
+strand  - '+', '-', or '.' (for don't know/don't care).
+frame   - non-coding: ‘.’; coding exon: 0-2 (reading frame of the first base).
+group   - All lines with the same group are linked together into a single item.
+
+
+
+========================================================================================
+
+
+
+phyloP:
+phyloP [OPTIONS] tree.mod [alignment] > out
+
+examples:
+- phyloP hky.mod hmrc_correct.fa > phyloP_1.txt 
+  running time too long for hmrc.fa
+
+- phyloP --null 10 hky.mod > null.txt
+
+- phyloP --posterior hky.mod hmrc.fa > phyloP_posterior.txt
+  probabilities are all NANs.
+  ERROR: --features cannot be used with --null, --posterior, or --fit-model.
+
+- phyloP --wig-scores --method LRT hky.mod hmrc.fa > phyloP_scores.wig
+  -log10 p-values (conservation scores) for each site (start = 1 & step = 1)
+  can do lineage-specific conservation scores (--subtree)
+
+- phyloP --features hmrc.gff --mode CONACC hky.mod hmrc.fa > phyloP_dless.txt
+  method: SPH (default, Siepel, Pollard, and Haussler (2006)), LRT, SCORE, GERP
+  mode: CON:   conservation, 1-sided
+        ACC:   acceleration, 1-sided
+        NNEUT: departs from neutral, 2-sided
+        CONACC: + —> conservation, - —> acceleration 
+
+========================================================================================
+
+
+hmrc_correct.fa: ~10,000 bp (base pair)
+hmrc.fa: ~(<)100,000 bp
+
+
+
+========================================================================================
+phastCons  
+phastCons [OPTIONS] alignment m1.mod,m2.mod,... > scores.wig
+
+- phyloFit --tree "((hg16, panTro1), (mm3, rn3))" -o hpmr hpmrc.ss --quiet
+- tree_doctor --scale 3.0 hpmr.mod > hpmr_fast.mod
+- phastCons hpmrc.ss hpmr.mod,hpmr_fast.mod > phastConsScores.wig
+
+
+
+
+
+
+
+
+
+

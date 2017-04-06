@@ -16,5 +16,5 @@ Try to add acceleration to DLESS:
     - double bd_estimate_transitions():      // not done
 
 Test:
-1. robustness check
+1. robustness checking
 

@@ -1,0 +1,11 @@
+
+*****
+P-values for number of substitutions observed in 'hmrc.fa' given 'hky.mod'
+*****
+
+p-value of conservation: 6.022647e-01
+p-value of acceleration: 4.006137e-01
+
+null distrib: mean = 70876.133257, var = -4294895357.450965, 95% c.i. = [70351, 71402]
+posterior distrib: mean = 70944.369613, var = 55534.625095
+
