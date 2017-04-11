@@ -19,7 +19,7 @@
 
 /* create a new birth-death phylo-HMM based on parameter values */
 BDPhyloHmm *bd_new(TreeModel *source_mod, double rho, double lambda, double mu,
-                   double nu, double phi, double eta, double alpha_c, double beta_c,
+                   double nu, double phi, double eta, int acc_height, double alpha_c, double beta_c,
                    double tau_c, double alpha_n, double beta_n,
                    double tau_n, int estim_gamma, int estim_omega,
                    int estim_phi, int estim_eta) {
@@ -27,7 +27,8 @@ BDPhyloHmm *bd_new(TreeModel *source_mod, double rho, double lambda, double mu,
     fprintf(stderr, "Inside bd_new.\n");
     int i, state;
     int nleaves = (source_mod->tree->nnodes + 1) / 2;
-    int nstates = 2 + 2 * (2*nleaves - 3) + nleaves; /* number of states */
+    // number of states
+    int nstates = 2 + 2 * (2*nleaves - 3) + tm_acc_nstates(source_mod, acc_height);
     HMM *hmm;
     TreeModel **models = smalloc(nstates * sizeof(void*));
     TreeNode *n; // iterator (nodes in the tree)
@@ -89,10 +90,10 @@ BDPhyloHmm *bd_new(TreeModel *source_mod, double rho, double lambda, double mu,
         bdphmm->branch_to_state_birth[n->id] = state;
         state++;
     }
-    for (i = 0; i < source_mod->tree->nnodes; i++) {   // add acc event to all leave nodes
+    for (i = 0; i < source_mod->tree->nnodes; i++) {  // add acc event to all leave nodes
         n = lst_get_ptr(source_mod->tree->nodes, i);
         
-        if (n->lchild == NULL && n->rchild == NULL) { // if n is a leaf node
+        if (n->height < acc_height) {                 // if height < acc_height (leaf = 0)
             bdphmm->state_to_branch[state] = n->id;
             bdphmm->branch_to_state_acc[n->id] = state;
             state++;

@@ -1,4 +1,4 @@
-setwd("~/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/myPhast/myTest/v1_robust")
+setwd("~/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/myPhast/myTest/")
 
 # ======================================================== #
 # ====================== Parameters ====================== #
@@ -15,7 +15,7 @@ type.adj <- function(t){
 # ======================================================== #
 # =================== Original Results =================== #
 # ======================================================== #
-df <- read.table("../original_hmrc.gff", skip=3)
+df <- read.table("original_hmrc.gff", skip=3)
 orig <- df[,c("V3","V4","V5")]
 colnames(orig) <- c("type", "start", "end")
 orig$type <- type.adj(as.character(orig$type))
@@ -37,7 +37,7 @@ for (lambda in lambda_seq){
     for (phi in phi_seq){
         for (eta in eta_seq){
             if (phi+eta < cutoff){
-                df <- read.table(paste("v1_rb_",lambda,",",phi,",",eta,".gff",sep=''), skip=3)
+                df <- read.table(paste("v1_robust/v1_rb_",lambda,",",phi,",",eta,".gff",sep=''), skip=3)
                 cur <- df[,c("V3","V4","V5")]
                 colnames(cur) <- c("type", "start", "end")
                 cur$type <- type.adj(as.character(cur$type))
@@ -58,8 +58,9 @@ for (lambda in lambda_seq){
     }
 }
 
-#save(res, res1, file="../v1_rb_result_2.rda")
-save(res1, file="../v1_rb_result_2.rda")
+#save(res, res1, file="v1_rb_result_2.rda")
+#save(res1, file="v1_rb_result_2.rda")
+write.csv(res1, "v1_rb_result_2.csv", row.names=F)
 
 
 
@@ -68,7 +69,8 @@ save(res1, file="../v1_rb_result_2.rda")
 # ======================================================== #
 # ======================== Result ======================== #
 # ======================================================== #
-load("../v1_rb_result_2.rda")
+#load("v1_rb_result_2.rda")
+res <- read.csv("v1_rb_result_2.csv", header=T)
 
 library(shiny)
 library(ggplot2)
@@ -101,8 +103,8 @@ runApp(list(
     ),
     server = function(input, output, session){
         output$locPlot <- renderPlot({
-            orig <- res1[res1$eta==0,]
-            rest <- res1[res1$eta!=0,]
+            orig <- res[res$eta==0,]
+            rest <- res[res$eta!=0,]
             orig$orig <- T
             rest$orig <- F
             
@@ -171,7 +173,7 @@ lambda<-1.5;phi<-.3;eta<-.4
 temp <- rest[rest$eta == eta & rest$phi == phi,]
 temp <- rest[abs(rest$eta-eta)<1e-3 & abs(rest$phi-phi)<1e-3,]
 temp <- rest[abs(rest$eta-eta)<1e-3 & abs(rest$lambda-lambda)<1e-3,]
-res1[res1$phi==phi & res1$eta==eta,]
+res[res$phi==phi & res$eta==eta,]
 
 x <- stats::runif(12); y <- stats::rnorm(12)
 i <- order(x, y); x <- x[i]; y <- y[i]

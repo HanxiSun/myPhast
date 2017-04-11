@@ -66,8 +66,8 @@ typedef struct{
  @param estim_phi Whether to estimate Phi
  */
 BDPhyloHmm *bd_new(TreeModel *source_mod, double rho, double lambda, double mu,
-                   double nu, double phi, double eta, double alpha_c, double beta_c,
-                   double tau_c, double alpha_n, double beta_n,
+                   double nu, double phi, double eta, int acc_height, double alpha_c,
+                   double beta_c, double tau_c, double alpha_n, double beta_n,
                    double tau_n, int estim_gamma, int estim_omega,
                    int estim_phi, int estim_eta);
 

@@ -267,6 +267,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		38021B791E9D21C800FD7F25 /* phast_temp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = phast_temp; path = /Users/Hanxi/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/myPhast/build/Debug/phast_temp; sourceTree = "<absolute>"; };
 		388B1B9F1E94DA8200622378 /* all_dists */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = all_dists; sourceTree = "<group>"; };
 		388B1BA01E94DA8200622378 /* base_evolve */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = base_evolve; sourceTree = "<group>"; };
 		388B1BA11E94DA8200622378 /* chooseLines */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = chooseLines; sourceTree = "<group>"; };
@@ -804,7 +805,6 @@
 		388B1DD11E94DA8300622378 /* treeGen.help_src */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treeGen.help_src; sourceTree = "<group>"; };
 		388B1DD21E94DA8300622378 /* treeGen.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = treeGen.o; sourceTree = "<group>"; };
 		388B1DD31E94DA8300622378 /* version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = version; sourceTree = "<group>"; };
-		389AC5AD1E5AA4CD00BA9232 /* phast_temp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = phast_temp; path = /Users/Hanxi/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/myPhast/build/Debug/phast_temp; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1722,7 +1722,7 @@
 			);
 			name = phast_temp;
 			productName = phast_temp;
-			productReference = 389AC5AD1E5AA4CD00BA9232 /* phast_temp */;
+			productReference = 38021B791E9D21C800FD7F25 /* phast_temp */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */

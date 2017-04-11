@@ -4232,3 +4232,18 @@ List *tm_setup_bgc_model_hmm(TreeModel *mod, const char *foreground,
     return modlist;
 }
 
+/*
+ Calculate # of acc states for a certain tree
+ */
+int tm_acc_nstates(TreeModel *mod, int acc_height){
+    int i, state = 0;
+    TreeNode *n; // iterator (nodes in the tree)
+    for (i = 0; i < mod->tree->nnodes; i++) {
+        n = lst_get_ptr(mod->tree->nodes, i);
+        
+        if (n->height < acc_height) state++; // if height < acc_height (leaf = 0)
+    }
+    
+    return state;
+}
+

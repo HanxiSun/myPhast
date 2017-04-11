@@ -1,4 +1,4 @@
-setwd("~/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/test/v1_robust")
+setwd("~/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/myPhast/myTest/")
 
 # ======================================================== #
 # ====================== Parameters ====================== #
@@ -12,7 +12,7 @@ tol <- 100           # num of bp diff for the start & end
 # ======================================================== #
 # =================== Original Results =================== #
 # ======================================================== #
-df <- read.table("../original_hmrc.gff", skip=3)
+df <- read.table("original_hmrc.gff", skip=3)
 ori <- df[,c("V3","V4","V5")]
 colnames(ori) <- c("type", "start", "end")
 ori$type <- as.character(ori$type)
@@ -34,7 +34,7 @@ for (mu in mu_seq){
                 names(count) <- c("nonNeutral", "sameRegion", "sameType", "notFound", "extra")
                 sameRegion2 <- 0     # sameRegion in terms of cur, i.e. extra=nrow(cur)-sameRegion2
                 
-                df <- read.table(paste("v1_rb_",mu,",",nu,",",phi,",",eta,".gff",sep=''), skip=3)
+                df <- read.table(paste("v1_robust/v1_rb_",mu,",",nu,",",phi,",",eta,".gff",sep=''), skip=3)
                 cur <- df[,c("V3","V4","V5")]
                 colnames(cur) <- c("type", "start", "end")
                 cur$type <- as.character(cur$type)
@@ -53,7 +53,7 @@ for (mu in mu_seq){
                 count["extra"] <- nrow(cur) - sameRegion2
                 count["nonNeutral"] <- nrow(cur)
                 
-                df <- read.table(paste("phyloP_rb_",mu,",",nu,",",phi,",",eta,".txt",sep=''), skip=1)
+                df <- read.table(paste("v1_robust/phyloP_rb_",mu,",",nu,",",phi,",",eta,".txt",sep=''), skip=1)
                 p.values <- df[,9]
                 nSig <- sum(abs(p.values) < 0.05)
                 
@@ -63,13 +63,13 @@ for (mu in mu_seq){
     }
 }
 
-write.csv(res, "../v1_rb_result.csv", row.names=F)
+write.csv(res, "v1_rb_result_1.csv", row.names=F)
 
 
 # ======================================================== #
 # ======================== Result ======================== #
 # ======================================================== #
-res <- read.csv("../v1_rb_result.csv", header=T)
+res <- read.csv("v1_rb_result_1.csv", header=T)
 
 
 

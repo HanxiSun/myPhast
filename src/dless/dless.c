@@ -26,10 +26,11 @@
 
 #define DEFAULT_RHO 0.3
 #define DEFAULT_LAMBDA 1.5
-#define DEFAULT_PHI 0.3
-#define DEFAULT_ETA 0.4
+#define DEFAULT_PHI 0.4
+#define DEFAULT_ETA 0.3
 #define DEFAULT_MU 0.01
 #define DEFAULT_NU 0.01
+#define DEFAULT_ACCHEIGHT 1
 
 int main(int argc, char *argv[]) {
     char c;
@@ -50,6 +51,7 @@ int main(int argc, char *argv[]) {
         {"lambda", 1, 0, 'L'},
         {"phi", 1, 0, 'p'},
         {"eta", 1, 0, 'e'},
+        {"acc-height", 1, 0, 'a'},
         {"transitions", 1, 0, 't'},
         {"expected-length", 1, 0, 'E'},
         {"target-coverage", 1, 0, 'C'},
@@ -72,11 +74,12 @@ int main(int argc, char *argv[]) {
     alpha_c = -1, beta_c = -1, tau_c = -1,
     alpha_n = -1, beta_n = -1, tau_n = -1;
     int set_transitions = FALSE, refidx = 1, estim_phi = TRUE,
-    estim_eta = TRUE, estim_gamma = TRUE, estim_omega = TRUE;
+    estim_eta = TRUE, estim_gamma = TRUE, estim_omega = TRUE,
+    acc_height = DEFAULT_ACCHEIGHT;
     char *seqname = NULL, *idpref = NULL;
     IndelHistory *ih = NULL;
     
-    while ((c = (char)getopt_long(argc, argv, "R:L:t:p:e:E:C:r:M:i:N:P:I:H:h", long_opts, &opt_idx)) != -1) {
+    while ((c = (char)getopt_long(argc, argv, "R:L:t:p:e:a:E:C:r:M:i:N:P:I:H:h", long_opts, &opt_idx)) != -1) {
         switch (c) {
             case 'R': // rho
                 rho = get_arg_dbl_bounds(optarg, 0, 1);
@@ -106,6 +109,10 @@ int main(int argc, char *argv[]) {
                 if (optarg[0] != '~') estim_eta = FALSE;
                 else optarg = &optarg[1];
                 eta = get_arg_dbl_bounds(optarg, 0, 1);
+                break;
+            case 'a': // acc height
+                // optarg = &optarg[1];
+                acc_height =get_arg_int_bounds(optarg, 1, INFTY);
                 break;
             case 'E':
                 if (optarg[0] != '~') estim_omega = FALSE;
@@ -258,7 +265,7 @@ int main(int argc, char *argv[]) {
         }
     }
     
-    bdphmm = bd_new(source_mod, rho, lambda, mu, nu, phi, eta, alpha_c, beta_c, tau_c,
+    bdphmm = bd_new(source_mod, rho, lambda, mu, nu, phi, eta, acc_height, alpha_c, beta_c, tau_c,
                     alpha_n, beta_n, tau_n, estim_gamma, estim_omega,
                     estim_phi, estim_eta);
     

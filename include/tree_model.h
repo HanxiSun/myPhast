@@ -717,4 +717,12 @@ void tm_setup_site_model(TreeModel *mod, const char *foreground, int bgc,
 
 List *tm_setup_bgc_model_hmm(TreeModel *mod, const char *foreground, double selNeg,
                              double selPos, double initBgc, double *initWeights);
+
+/**
+ calculate total number of acc states
+ @param mod A tree model object
+ @param acc_height A number for the height of tree to consider acc states
+ */
+int tm_acc_nstates(TreeModel *mod, int acc_height);
+
 #endif
