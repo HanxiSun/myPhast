@@ -120,8 +120,10 @@ BDPhyloHmm *bd_new(TreeModel *source_mod, double rho, double lambda, double mu,
             for (i = 0; i < lst_size(inside); i++)
                 ((TreeNode*)lst_get_ptr(inside, i))->dparent *= rho;
         else                                                  // acc
-            for (i = 0; i < lst_size(inside); i++)
-                ((TreeNode*)lst_get_ptr(inside, i))->dparent *= lambda;
+            for (i = 0; i < lst_size(inside); i++){
+                ((TreeNode*)lst_get_ptr(inside, i))->dparent *= lambda; // acc below
+                ((TreeNode*)lst_get_ptr(outside, i))->dparent *= rho;   // con above
+            }
         
         tm_reinit(models[state], models[state]->subst_mod,
                   models[state]->nratecats, models[state]->alpha, NULL, NULL);

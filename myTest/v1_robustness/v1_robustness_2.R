@@ -70,7 +70,7 @@ write.csv(res1, "v1_rb_result_2.csv", row.names=F)
 # ======================== Result ======================== #
 # ======================================================== #
 #load("v1_rb_result_2.rda")
-res <- read.csv("v1_rb_result_2.csv", header=T)
+res <- read.csv("v1_robustness/v1_rb_result_2.csv", header=T)
 
 library(shiny)
 library(ggplot2)

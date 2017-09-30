@@ -267,7 +267,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		38021B791E9D21C800FD7F25 /* phast_temp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = phast_temp; path = /Users/Hanxi/GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/myPhast/build/Debug/phast_temp; sourceTree = "<absolute>"; };
+		3805D7FB1F7E925100012BCA /* phast_temp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = phast_temp; sourceTree = BUILT_PRODUCTS_DIR; };
 		388B1B9F1E94DA8200622378 /* all_dists */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = all_dists; sourceTree = "<group>"; };
 		388B1BA01E94DA8200622378 /* base_evolve */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = base_evolve; sourceTree = "<group>"; };
 		388B1BA11E94DA8200622378 /* chooseLines */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = chooseLines; sourceTree = "<group>"; };
@@ -493,9 +493,7 @@
 		388B1C841E94DA8300622378 /* wig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wig.h; sourceTree = "<group>"; };
 		388B1C861E94DA8300622378 /* libphast.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libphast.a; sourceTree = "<group>"; };
 		388B1C871E94DA8300622378 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		388B1C881E94DA8300622378 /* LICENSE-original.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-original.txt"; sourceTree = "<group>"; };
 		388B1C891E94DA8300622378 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		388B1C8A1E94DA8300622378 /* README-original.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "README-original.txt"; sourceTree = "<group>"; };
 		388B1C8B1E94DA8300622378 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		388B1C8E1E94DA8300622378 /* bd_phylo_hmm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bd_phylo_hmm.c; sourceTree = "<group>"; };
 		388B1C8F1E94DA8300622378 /* bd_phylo_hmm.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = bd_phylo_hmm.o; sourceTree = "<group>"; };
@@ -804,7 +802,6 @@
 		388B1DD01E94DA8300622378 /* treeGen.help */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treeGen.help; sourceTree = "<group>"; };
 		388B1DD11E94DA8300622378 /* treeGen.help_src */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treeGen.help_src; sourceTree = "<group>"; };
 		388B1DD21E94DA8300622378 /* treeGen.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = treeGen.o; sourceTree = "<group>"; };
-		388B1DD31E94DA8300622378 /* version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = version; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1696,12 +1693,10 @@
 				388B1C491E94DA8300622378 /* include */,
 				388B1C851E94DA8300622378 /* lib */,
 				388B1C871E94DA8300622378 /* LICENSE */,
-				388B1C881E94DA8300622378 /* LICENSE-original.txt */,
 				388B1C891E94DA8300622378 /* Makefile */,
-				388B1C8A1E94DA8300622378 /* README-original.txt */,
 				388B1C8B1E94DA8300622378 /* README.md */,
 				388B1C8C1E94DA8300622378 /* src */,
-				388B1DD31E94DA8300622378 /* version */,
+				3805D7FB1F7E925100012BCA /* phast_temp */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1722,7 +1717,7 @@
 			);
 			name = phast_temp;
 			productName = phast_temp;
-			productReference = 38021B791E9D21C800FD7F25 /* phast_temp */;
+			productReference = 3805D7FB1F7E925100012BCA /* phast_temp */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -1731,7 +1726,7 @@
 		389AC5A51E5AA4CC00BA9232 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Hanxi Sun";
 				TargetAttributes = {
 					389AC5AC1E5AA4CC00BA9232 = {
@@ -1910,7 +1905,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1918,7 +1915,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1957,7 +1958,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1965,7 +1968,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

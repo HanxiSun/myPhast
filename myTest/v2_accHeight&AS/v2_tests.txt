@@ -1,0 +1,2 @@
+../bin/dless --acc-height 4 --lambda 2.5 --phi 0.2 --eta 0.3 hmrc.fa hky.mod > chr1_accHeight=4_lambda=2.5_phi=0.2_eta=0.3.gff
+

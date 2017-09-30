@@ -1,0 +1,18 @@
+v1.4
+
+http://compgen.cshl.edu/phast/
+
+Git: https://github.com/CshlSiepelLab/phast/blob/master/test/test_phast.sh
+
+DLESS result: http://genome.ucsc.edu/encode, search phyloP results
+
+      data: http://hgdownload.soe.ucsc.edu/downloads.html, search multiple alignment
+         e.g. http://hgdownload.cse.ucsc.edu/goldenPath/hg19/multiz100way/
+              http://genome.ucsc.edu/cgi-bin/hgTrackUi?db=hg38&g=cons100way
+         e.g. http://hgdownload.cse.ucsc.edu/goldenPath/hg38/multiz20way/
+
+
+Push to Github
+cd GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/
+git status
+git add -A

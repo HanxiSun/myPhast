@@ -1,2 +1,0 @@
-../bin/dless --acc-height 2 --lambda 2.5 --phi 0.2 --eta 0.3 hmrc.fa hky.mod > v2_accH.gff
-
