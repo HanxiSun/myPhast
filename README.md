@@ -6,7 +6,7 @@ Make changes to [PHAST](https://github.com/CshlSiepelLab/phast) (a phylogeny sof
 
 ## Versions
 ### V3
-- put acc within conserve instead of neutral
+- put acc within conserved instead of neutral
 	- change acc states from being a subtree within neutral states to being a subtree within conserve state. 
 	- Reference: [Pollard, Katherine S., Sofie R. Salama, Nelle Lambert, Marie-Alexandra Lambot, Sandra Coppens, Jakob S. Pedersen, Sol Katzman et al. "An RNA gene expressed during cortical development evolved rapidly in humans." Nature 443, no. 7108 (2006): 167](https://www.nature.com/nature/journal/v443/n7108/pdf/nature05113.pdf)
 	- `bd_phylo_hmm.c & .h` 
@@ -50,7 +50,7 @@ Make changes to [PHAST](https://github.com/CshlSiepelLab/phast) (a phylogeny sof
   - add bottom h level acc states
   - adaptive substitution analysis
 - V3
-  - acc within conserve instead of neutral
+  - acc within conserved instead of neutral
 
 
 ### Furture Work

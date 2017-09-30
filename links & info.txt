@@ -16,3 +16,4 @@ Push to Github
 cd GoogleDrive/Purdue/Research/Vinayak_Rao/17Spr_Genetic/Softwares/
 git status
 git add -A
+git commit -m "changes"
